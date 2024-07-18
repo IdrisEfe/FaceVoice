@@ -43,7 +43,7 @@ while True:
         
         if k & 0xFF == ord('a'):
             recorder.start()
-            command_count+=command_count
+            command_count+=1
             sec_to_run = 3 # Kaç saniye boyunca bizi dinleyeceğini belirtiyor
             exec_end_time = datetime.datetime.now() + datetime.timedelta(seconds=sec_to_run)
             
@@ -89,4 +89,9 @@ while True:
         
     cv2.imshow('Face Detection ve Sesli Asistan', img)
     
+    if k & 0xFF == ord('q'):
+        break
+    
+capture.release()
+cv2.destroyAllWindows()
         
